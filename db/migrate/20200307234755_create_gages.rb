@@ -5,6 +5,7 @@ class CreateGages < ActiveRecord::Migration
       t.date :date_created
       t.date :due_date
       t.date :previous_due_date
+      t.integer :user_id
     end
   end
 end
