@@ -9,15 +9,18 @@
   html, body {
     height: 100%;
     width: 100%;
-    background: url('./images/splashpage.png') no-repeat center center fixed;
+    background-image: url('splashpage.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: red;
-    background: url("splashpage.png");
-    background-repeat: no-repeat;
-    background-size: auto;
+    /* background-color: red;*/
+    /* background-image: url("splashpage.png");
+    background-color: blue; */
+
 
     color: #333;
     font-family: Sans-Serif;
@@ -46,6 +49,7 @@
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
+    text-align: center;
   }
 
   h3 {
