@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
 
   post '/registrations' do
    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
-   @user.save
+   @user.save #creates a user object with params and saves it to class array
    session[:user_id] = @user.id
    puts params
 
