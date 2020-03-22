@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
 
   configure do
     enable :sessions
-    set :session_secret, "secret"
+    set :session_secret, "itsasecrectoallofus"
   end
 
   configure do
@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
    @user.save #creates a user object with params and saves it to class array
    session[:user_id] = @user.id
-   puts params
+   puts params #should output the params to console
 
    redirect '/users/home'
  end
@@ -35,4 +35,18 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+
+  helpers do
+    def logged_in?
+      !!session[:email]
+    end
+
+    def login(email)
+      session[:email] = email 
+
+    end
+
+    def logout!
+      session.clear
+    end
 end
