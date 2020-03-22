@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
   post '/sessions' do
     #login a user with this email and Password
     login(params[:email], params[:password])
-    redirect '/home'
+    redirect '/users/home'
   end
 
   get '/logout' do
     logout!
-    redirect '/index.erb'
+    redirect '/welcome.erb'
   end
-  
+
 end
