@@ -46,10 +46,11 @@ class ApplicationController < Sinatra::Base
         session[:email] = user.email
       else
         redirect '/login'
-      end 
+      end
     end
 
     def logout!
       session.clear
     end
+  end
 end
