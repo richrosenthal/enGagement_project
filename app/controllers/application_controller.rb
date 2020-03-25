@@ -29,8 +29,11 @@ class ApplicationController < Sinatra::Base
  end
 
   get "/index" do
+    
     erb :index
   end
+
+
 
 
   helpers do

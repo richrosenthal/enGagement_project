@@ -4,6 +4,8 @@ class UserController < ApplicationController
     erb  :"/users/home"
   end
 
+  
+
 
 
 end
