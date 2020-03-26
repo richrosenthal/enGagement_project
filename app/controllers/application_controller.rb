@@ -38,7 +38,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      !!session[:email]
+      !!current_user
     end
 
     def login(email, password)
@@ -51,8 +51,8 @@ class ApplicationController < Sinatra::Base
     end
 
     def currrent_user
-      User.find_by(id: session[:user_id])
-    end 
+      @current_user ||= User.find_by(id: session[:user_id])
+    end
 
 
 
