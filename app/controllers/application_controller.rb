@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
  end
 
   get "/index" do
-    
+
     erb :index
   end
 
@@ -42,13 +42,19 @@ class ApplicationController < Sinatra::Base
     end
 
     def login(email, password)
-      if user = User.find_by(:email => email)
+      if user = User.find_by(:email => email) && User.find_by(:password_digest => password)
         session[:email] = user.email
-        session[:password] = user.password
+        session[:password_digest] = user.password
       else
         redirect 'sessions/login'
       end
     end
+
+    def currrent_user
+      User.find_by(id: session[:user_id])
+    end 
+
+
 
     def logout!
       session.clear
