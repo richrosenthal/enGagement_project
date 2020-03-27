@@ -4,7 +4,35 @@ class GagesController < ApplicationController
   get '/gages/new' do
     erb :'gages/new'
   end
+
+
+
   # post gage_entries to create a new gage entry
+  post '/gages' do
+    #ensures that the user is logged in
+    if !logged_in?
+      redirect '/login'
+    end
+    #make sure the user enters the required information
+    #name, due_date, and date_created is required. The rest is optional.
+
+    if params[:name] !="" && params[:due_date] !="" && params[:date_created] !=""
+
+      @gage = Gage.create(name: params[:name], date_created: params[:date_created],
+      due_date: params[:due_date], previous_due_date: params[:previous_due_date], user_id: current_user.id )
+      @gage.save #creates a gage object with params and saves it to class array
+
+      redirect "/gages/#{@gage.id}"
+    else
+      redirect '/gages/new'
+    end
+  end
+
+  # t.string  "name"
+  # t.date    "date_created"
+  # t.date    "due_date"
+  # t.date    "previous_due_date"
+  # t.integer "user_id"
 
   # show route for a gage entry
 
