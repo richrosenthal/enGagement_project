@@ -1,22 +1,11 @@
 class GagesController < ApplicationController
-  get '/gages' do
-    "You are logged in as #{session[:email]}"
 
-  end
+  #get gage_entries/new to render a form to create new entry
 
-  get '/gages/new' do
-    if !session[:email]
-      redirect '/sessions/login'
-    else
-      "A new gage form"
-    end
-  end
+  # post gage_entries to create a new gage entry
 
-  get '/gages/:id/edit' do
-    if !session[:email]
-      redirect '/sessions/login'
-    else
-      "A new gage form"
-    end
-  end
+  # showo route for a gage entry
+
+  #index route for all gage entries
+  
 end
