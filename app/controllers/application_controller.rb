@@ -20,12 +20,18 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/registrations' do
-   @user = User.new(name: params["name"], email: params["email"], password: params["password"])
-   @user.save #creates a user object with params and saves it to class array
-   session[:user_id] = @user.id
-   puts params #should output the params to console
+    #added validation 
+    if params[:name] !="" && params[:email] !="" && params[:password] !=""
 
-   redirect '/users/home'
+      @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+      @user.save #creates a user object with params and saves it to class array
+      session[:user_id] = @user.id #set session id to newly created user.id
+    #  puts params #should output the params to console
+
+      redirect '/users/home'
+    else
+      erb :'/registrations/signup'
+    end
  end
 
   get "/index" do
