@@ -35,6 +35,8 @@ class ApplicationController < Sinatra::Base
     end
  end
 
+
+#user Show route
  get '/users/:id' do
    @user = User.find_by(id: params[:id])
    erb :'/users/show'
