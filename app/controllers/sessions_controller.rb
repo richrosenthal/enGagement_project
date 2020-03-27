@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   get '/logout' do
     logout!
-    redirect '/welcome.erb'
+    erb :welcome
   end
 
 end
