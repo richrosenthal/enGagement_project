@@ -28,10 +28,15 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id #set session id to newly created user.id
     #  puts params #should output the params to console
 
-      redirect '/users/show'
+      redirect "/users/#{ @user.id }"
+
     else
       erb :'/registrations/signup'
     end
+ end
+
+ get '/users/:id' do
+   erb :'/users/show'
  end
 
   get "/index" do
@@ -48,9 +53,11 @@ class ApplicationController < Sinatra::Base
     end
 
     def login(email, password)
-      if user = User.find_by(:email => email) && User.find_by(:password_digest => password)
+      if user = User.find_by(:email => email)
         session[:email] = user.email
         session[:password_digest] = user.password
+
+        redirect "/users/#{ session[:user_id]}"
       else
         redirect 'sessions/login'
       end

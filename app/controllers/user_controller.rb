@@ -4,8 +4,8 @@ class UserController < ApplicationController
     erb  :"/users/home"
   end
 
-  get "/users/show" do
-    erb :"/users/show"
+  get '/users/:id' do
+    erb :'/users/show'
   end
 
 
