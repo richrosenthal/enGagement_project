@@ -28,14 +28,12 @@ class GagesController < ApplicationController
     end
   end
 
-  # t.string  "name"
-  # t.date    "date_created"
-  # t.date    "due_date"
-  # t.date    "previous_due_date"
-  # t.integer "user_id"
 
   # show route for a gage entry
-
+  get 'gages/:id' do
+    @gage = Gage.find(params[:id])
+    erb :'gages/show'
+  end
   #index route for all gage entries
 
 end
