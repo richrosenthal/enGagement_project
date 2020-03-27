@@ -57,7 +57,7 @@ class ApplicationController < Sinatra::Base
         session[:email] = user.email
         session[:password_digest] = user.password
 
-        redirect "/users/#{ session[:user_id]}"
+
       else
         redirect 'sessions/login'
       end

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   post '/sessions' do
     #login a user with this email and Password
     login(params[:email], params[:password])
-    redirect '/gages'
+    redirect "/users/#{ session[:user_id]}"
   end
 
   get '/logout' do
