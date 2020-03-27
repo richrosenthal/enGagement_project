@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id #set session id to newly created user.id
     #  puts params #should output the params to console
 
-      redirect '/users/home'
+      redirect '/users/show'
     else
       erb :'/registrations/signup'
     end
