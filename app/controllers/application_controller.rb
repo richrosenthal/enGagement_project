@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/registrations' do
-    #added validation 
+    #added validation
     if params[:name] !="" && params[:email] !="" && params[:password] !=""
 
       @user = User.new(name: params["name"], email: params["email"], password: params["password"])
