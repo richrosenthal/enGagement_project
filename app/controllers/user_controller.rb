@@ -4,7 +4,10 @@ class UserController < ApplicationController
     erb  :"/users/home"
   end
 
-  
+  get "/users/show" do
+    erb :"/users/show"
+  end
+
 
 
 
