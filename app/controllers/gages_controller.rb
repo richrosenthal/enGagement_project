@@ -22,7 +22,7 @@ class GagesController < ApplicationController
       due_date: params[:due_date], previous_due_date: params[:previous_due_date], user_id: current_user.id )
       @gage.save #creates a gage object with params and saves it to class array
 
-      redirect "/gages/#{@gage.id}"
+      redirect "/gages/#{ @gage.id }"
     else
       redirect '/gages/new'
     end
@@ -30,7 +30,7 @@ class GagesController < ApplicationController
 
 
   # show route for a gage entry
-  get 'gages/:id' do
+  get '/gages/:id' do
     @gage = Gage.find(params[:id])
     erb :'gages/show'
   end
