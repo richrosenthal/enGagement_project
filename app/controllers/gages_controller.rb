@@ -38,7 +38,15 @@ class GagesController < ApplicationController
   # edit route for created gage
   get '/gages/:id/edit' do
     set_gage_entry
-    erb :'/gages/edit'
+    if logged_in?
+      if @gage.user == current_user
+        erb :'/gages/edit'
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
 
   #patches edited gage
