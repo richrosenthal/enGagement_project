@@ -32,7 +32,7 @@ class GagesController < ApplicationController
   # show route for a gage entry
   get '/gages/:id' do
     @gage = Gage.find(params[:id])
-    @user = User.find_by(session[:user_id])
+    @user = User.find_by(session[:user_id]) #Finds current user by using session id
     erb :'gages/show'
   end
   #index route for all gage entries
