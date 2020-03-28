@@ -37,7 +37,7 @@ class GagesController < ApplicationController
   end
   # edit route for created gage
   get '/gages/:id/edit' do
-    "Hello World"
+    erb :'/gages/edit'
   end
   #index route for all gage entries
 
