@@ -37,13 +37,13 @@ class GagesController < ApplicationController
 
   # show route for a gage entry
   get '/gages/:id' do
-    set_gage_entry
+    @gage = Gage.find(params[:id])
     @user = User.find_by(session[:user_id]) #Finds current user by using session id
     erb :'gages/show'
   end
   # edit route for created gage
   get '/gages/:id/edit' do
-    set_gage_entry
+    @gage = Gage.find(params[:id])
     if logged_in?
       if @gage.user == current_user
         erb :'/gages/edit'
@@ -58,7 +58,7 @@ class GagesController < ApplicationController
   #patches edited gage
   patch '/gages/:id' do
     #find gage
-    set_gage_entry
+    @gage = Gage.find(params[:id])
     if logged_in?
         if @gage.user == current_user
           #modify gage

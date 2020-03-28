@@ -1,0 +1,23 @@
+<h1>All Gages</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>| Date Created</th>
+    <th>| Due Date</th>
+    <th>| Previous Due Date</th>
+
+  </tr>
+  <% @gages.each do |gage| %>
+  <tr>
+    <a href=/gages/<%= gage.id %>>
+    <td> <%= gage.name %> | </td>
+    <td> <%= gage.date_created %> | </td>
+    <td> <%= gage.due_date %> | </td>
+    <td> <%= gage.previous_due_date %> | </td>
+    </a>
+    <br>
+  </tr>
+  <tr>
+</table>
+<% end %>
