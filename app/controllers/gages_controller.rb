@@ -37,6 +37,7 @@ class GagesController < ApplicationController
   end
   # edit route for created gage
   get '/gages/:id/edit' do
+    @gage = Gage.find(params[:id])
     erb :'/gages/edit'
   end
   #index route for all gage entries
