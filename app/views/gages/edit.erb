@@ -1,6 +1,7 @@
 <h1>Edit Gage</h1>
 
-<form method="post" action="/gages">
+<form method="post" action="/gages/<%= @gage.id %>">
+  <input type="hidden" name="_method" value="patch">
   <p>Name: <input type="text" id="name" name="name" value="<%= @gage.name %>"></p>
   <p>Date_Created: <input type="date" id="text" name="date_created" value="<%= @gage.date_created %>"></p>
   <p>Due Date: <input type="date" id="text" name="due_date" value="<%= @gage.due_date %>"></p>
