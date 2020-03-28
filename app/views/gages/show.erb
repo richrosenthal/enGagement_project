@@ -40,7 +40,8 @@ tr:nth-child(even) {
   <tr>
 </table>
 
-#Edit link
+<% if current_user == @gage.user %>
 <a href="/gages/<%= @gage.id %>/edit">Edit Gage</a>
 
 #Delete Link
+<% end %>
