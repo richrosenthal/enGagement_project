@@ -12,11 +12,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    #checks to see if user is logged in and directs to either home page or straight to user page
     if logged_in?
       redirect "/users/#{current_user.id}"
     else
       erb :welcome
-    end 
+    end
   end
 
   get '/registrations/signup' do
