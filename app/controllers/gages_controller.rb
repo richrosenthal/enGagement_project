@@ -35,6 +35,10 @@ class GagesController < ApplicationController
     @user = User.find_by(session[:user_id]) #Finds current user by using session id
     erb :'gages/show'
   end
+  # edit route for created gage
+  get '/gages/:id/edit' do
+    "Hello World"
+  end
   #index route for all gage entries
 
 end
