@@ -73,6 +73,17 @@ class GagesController < ApplicationController
     end
   end
 
+  delete '/gages/:id' do
+    set_gage_entry
+    if current_user == @gage.user
+      @gage.destroy
+      redirect '/gages'
+    else
+      redirect '/gages'
+    end
+
+  end
+
 
 private
   def set_gage_entry
