@@ -53,10 +53,18 @@ class GagesController < ApplicationController
   patch '/gages/:id' do
     #find gage
     set_gage_entry
-    #modify gage
-    @gage.update(name: params["name"], date_created: params["date_created"], due_date: params["due_date"], previous_due_date: params["previous_due_date"])
-    #redirct to show page
-    redirect "/gages/#{@gage.id}"
+    if logged_in?
+        if @gage.user == current_user
+          #modify gage
+          @gage.update(name: params["name"], date_created: params["date_created"], due_date: params["due_date"], previous_due_date: params["previous_due_date"])
+          #redirct to show page
+          redirect "/gages/#{@gage.id}"
+        else
+          redirect "users/#{current_user.id}"
+        end
+    else
+      redirect '/'
+    end
   end
   #index route for all gage entries
 
