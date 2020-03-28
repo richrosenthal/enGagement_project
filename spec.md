@@ -15,6 +15,7 @@ Include at least one belongs_to relationship on another model (e.g. Post belongs
 /*Gages belong to user*/
 
 Include user accounts with unique login attribute (username or email)
+/*User accounts are made unique by email*/
 
 Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 
@@ -28,9 +29,10 @@ Your README.md includes a short description, install instructions, a contributor
 Confirm
 
 You have a large number of small Git commits
-
+/*Check*/
 Your commit messages are meaningful
-
+/*Check*/
 You made the changes in a commit that relate to the commit message
-
+/*Check*/
 You don't include changes in a commit that aren't related to the commit message
+/*Check*/
