@@ -31,15 +31,29 @@ class GagesController < ApplicationController
 
   # show route for a gage entry
   get '/gages/:id' do
-    @gage = Gage.find(params[:id])
+    set_gage_entry
     @user = User.find_by(session[:user_id]) #Finds current user by using session id
     erb :'gages/show'
   end
   # edit route for created gage
   get '/gages/:id/edit' do
-    @gage = Gage.find(params[:id])
+    set_gage_entry
     erb :'/gages/edit'
   end
+
+  #patches edited gage
+  patch '/gages/:id' do
+    #find gage
+    set_gage_entry
+    #modify gage
+    
+    #redirct to show page
+  end
   #index route for all gage entries
+
+private
+  def set_gage_entry
+    @gage = Gage.find(params[:id])
+  end
 
 end
