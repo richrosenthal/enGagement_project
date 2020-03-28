@@ -21,7 +21,7 @@ Ensure that the belongs_to resource has routes for Creating, Reading, Updating a
 
 Ensure that users can't modify content created by other users
 Include user input validations
-
+/*Users cannot modify non-owned gages*/
 BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 
 
