@@ -1,5 +1,11 @@
 class GagesController < ApplicationController
 
+  get '/gages' do
+    @gages = Gage.all
+    erb :'gages/index'
+  end
+
+
   #get gage_entries/new to render a form to create new entry
   get '/gages/new' do
     erb :'gages/new'
@@ -66,7 +72,7 @@ class GagesController < ApplicationController
       redirect '/'
     end
   end
-  #index route for all gage entries
+
 
 private
   def set_gage_entry
