@@ -40,5 +40,8 @@ tr:nth-child(even) {
 <% if current_user == @gage.user %>
 <a href="/gages/<%= @gage.id %>/edit">Edit Gage</a>
 
-#Delete Link
+<form class="" action="/gages/<%= @gage.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" name="" value="Delete">
+</form>
 <% end %>
