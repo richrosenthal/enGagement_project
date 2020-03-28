@@ -18,6 +18,7 @@ Include user accounts with unique login attribute (username or email)
 /*User accounts are made unique by email*/
 
 Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+/*Full CRUD*/ 
 
 Ensure that users can't modify content created by other users
 /*Users cannot modify non-owned gages*/
