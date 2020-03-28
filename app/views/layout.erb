@@ -31,9 +31,11 @@ body {
 
     <div class="wrapper">
       <div class="nav">
+        <% if logged_in? %>
         <a href="/logout">Logout</a>
         <a href="/gages">All Gages</a>
         <a href="/gages/new">Create</a>
+        <% end %> 
       </div>
         <%= yield %>
 
