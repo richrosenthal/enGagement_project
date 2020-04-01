@@ -7,6 +7,6 @@ end
 use Rack::MethodOverride
 use GagesController
 use SessionsController
-use UserController
+use UsersController
 
 run ApplicationController
