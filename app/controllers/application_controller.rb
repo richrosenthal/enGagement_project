@@ -20,25 +20,7 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/registrations/signup' do
-    erb :'/registrations/signup'
-  end
 
-  post '/registrations' do
-    #added validation
-    if params[:name] !="" && params[:email] !="" && params[:password] !=""
-
-      @user = User.new(name: params["name"], email: params["email"], password: params["password"])
-      @user.save #creates a user object with params and saves it to class array
-      session[:user_id] = @user.id #set session id to newly created user.id
-    #  puts params #should output the params to console
-
-      redirect "/users/#{ @user.id }"
-
-    else
-      erb :'/registrations/signup'
-    end
- end
 
 
 #user Show route
@@ -62,9 +44,7 @@ class ApplicationController < Sinatra::Base
 
     def login(email, password)
       if user = User.find_by(:email => email)
-        session[:email] = user.email
-        session[:password_digest] = user.password
-
+        session[:user_id] = user.id
 
       else
         redirect 'sessions/login'
