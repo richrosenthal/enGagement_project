@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
     #login(params[:email], params[:password])
     @user = User.find_by(email: params[:email])
 
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect "/users/#{ session[:user_id]}"
+      redirect "/users/#{ @user.id}"
     else
       redirect '/sessions/login'
     end
