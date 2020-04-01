@@ -33,9 +33,11 @@ tr:nth-child(even) {
     <td><%= @gage.date_created %></td>
     <td><%= @gage.due_date %></td>
     <td><%= @gage.previous_due_date %></td>
+
   </tr>
   <tr>
 </table>
+
 
 <% if current_user == @gage.user %>
 <a href="/gages/<%= @gage.id %>/edit">Edit Gage</a>
